@@ -1,0 +1,6 @@
+*~
+.git
+projects/*
+!projects/.htaccess
+bower_components/
+node_modules/
