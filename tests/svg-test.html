@@ -35,12 +35,12 @@
 
 			$(document).ready(function() {
 				registerEventListeners();
-				var $annoPopup = $("#popup");
+				var $annoPopup = $("#anno-popup");
 				var $annoDisplay = $annoPopup.find(".annotation-wrapper");
 				console.debug($annoDisplay);
 				$annoPopup.show();
 				$annoDisplay.empty();
-				$.get("tests/cdata.xml", function( data ) {
+				$.get("cdata.xml", function( data ) {
 					annotations[0].html = $("div", data).text();
 					annotations.forEach(function(anno, idx) {
 						var hiLanguageCode = anno.language;
@@ -72,7 +72,7 @@
 		</script>
 	</head>
 	<body style="margin:0;width:100vh;height:100vh;">
-		<div id="popup" style="left:100px">
+		<div class="popup" id="anno-popup"style="left:100px">
 			<div class="windowBar">
 				<div class="windowBar-button close-button">
 					<span>x</span>

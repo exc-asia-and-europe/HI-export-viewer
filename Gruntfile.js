@@ -31,7 +31,6 @@ module.exports = function(grunt) {
       },
       lib_test: {
         src: ['lib/main.js']
-//        src: ['lib/**/*.js', 'test/**/*.js']
       }
     }
   });

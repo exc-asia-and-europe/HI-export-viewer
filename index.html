@@ -21,7 +21,17 @@
 		</script>
 	</head>
 	<body style="margin:0;bottom:0;">
-		<div id="popup">
+		<div class="popup" id="cssSkeleton-popup">
+			<div class="windowBar">
+				<div class="windowBar-button close-button">
+					<span>x</span>
+				</div>
+			</div>
+			<div class="popup-content">
+				<textarea id="cssSkeletonTextarea"></textarea>
+			</div>
+		</div>
+		<div class="popup" id="anno-popup">
 			<div class="windowBar">
 				<div class="windowBar-button close-button">
 					<span>x</span>
@@ -35,6 +45,9 @@
 			</div>
 			<div>
 				<select id="viewSelector"></select>
+			</div>
+			<div>
+				<span id="getCssSkeleton">create CSS</button>
 			</div>
 			<div>
 				<input id="image-opacity" type="range" min="0" max="1"/>
