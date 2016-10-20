@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="../bower_components/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
+		<script type="text/javascript" src="../bower_components/d3/d3.min.js"></script>
+
+		<script type="text/javascript" src="../lib/lang.js"></script>
+		<script type="text/javascript" src="../lib/main.js"></script>
+		<link rel="stylesheet" href="../main.css"/>
+		<link rel="stylesheet" href="../bower_components/flag-icon-css/css/flag-icon.min.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet"/>
+
+		<script type="text/javascript">
+			var annotations = [
+				{
+					language: "jp",
+					title: "j title japtitle japtitle japtitle japtitle japtitle",
+					html: "jap-html lorem ipsum dolor sit"
+				},
+				{
+					language: "en",
+					title: "enptitle",
+					html: "haben sie gehort das deutsche Band?"
+				},
+				{
+					language: "ba",
+					title: "ba titel",
+					html: "Bacon ipsum dolor amet ham hock shoulder pig salami porchetta sausage tri-tip turkey pork loin cupim ball tip. Spare ribs pork chop boudin, beef jerky landjaeger rump prosciutto ground round pork biltong swine tail burgdoggen. Landjaeger pork swine, ham rump hamburger cow shoulder jowl pastrami. Shank jowl tail biltong, leberkas hamburger brisket boudin bacon pork chop short ribs.\
+						Brisket ribeye corned beef, turducken chicken turkey pork loin swine kielbasa bresaola fatback landjaeger. Ground round tongue ham turkey shoulder leberkas rump doner cupim pork loin ribeye pancetta tenderloin flank. Jerky beef picanha brisket short loin boudin. Fatback shank kevin short ribs pork ground round meatloaf filet mignon landjaeger alcatra jerky brisket."
+				}
+			]
+
+
+
+			$(document).ready(function() {
+				registerEventListeners();
+				var $annoPopup = $("#popup");
+				var $annoDisplay = $annoPopup.find(".annotation-wrapper");
+				console.debug($annoDisplay);
+				$annoPopup.show();
+				$annoDisplay.empty();
+				$.get("tests/cdata.xml", function( data ) {
+					annotations[0].html = $("div", data).text();
+					annotations.forEach(function(anno, idx) {
+						var hiLanguageCode = anno.language;
+						var isoLangCode = langCodeMap[hiLanguageCode];
+
+						var $annoBody = $("<div></div>").addClass("annotation-body");
+						var $annoLang = $("<span></span>").addClass("annotation-lang")
+						if(isoLangCode){
+							$annoLang.addClass("flag-icon flag-icon-" + isoLangCode);
+						}else{
+							$annoLang.html(hiLanguageCode)
+						}
+						var $annoTitle = $("<span></span>").addClass("annotation-title").html(anno.title);
+						var $annoHeader = $("<div></div>").addClass("annotation-header")
+							.append($annoTitle)
+							.append($annoLang);
+
+						$annoBody.html(anno.html);
+						//Baue Eintrag zusammen
+						var $annoEntry = $("<div></div>").addClass("annotation-entry")
+							.append($annoHeader)
+							.append($annoBody);
+						//Hänge Eintrag an AnnoDisplay an
+						$annoEntry.appendTo($annoDisplay);
+					});
+					$('#popup').find(".annotation-body").first().show("fast");
+				});
+			});
+		</script>
+	</head>
+	<body style="margin:0;width:100vh;height:100vh;">
+		<div id="popup" style="left:100px">
+			<div class="windowBar">
+				<div class="windowBar-button close-button">
+					<span>x</span>
+				</div>
+			</div>
+			<div class="annotation-wrapper"></div>
+		</div>
+		<div>
+			<div id="menu">
+				<div>
+					<select id="projectSelector"></select>
+				</div>
+				<div>
+					<select id="viewSelector"></select>
+				</div>
+				<div>
+					<input id="image-opacity" type="range" min="0" max="1"/>
+				</div>
+			</div>
+		</div>
+		<div>
+			<button id="show" type="button">Show</button>
+		</div>
+	</body>
+</html>

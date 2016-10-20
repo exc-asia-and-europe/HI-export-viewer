@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="bower_components/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
+		<script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
+
+		<script type="text/javascript" src="lib/lang.js"></script>
+		<script type="text/javascript" src="lib/main.js"></script>
+
+		<link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
+		<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet" />
+
+		<link rel="stylesheet" href="main.css" />
+
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				initViewer();
+			});
+		</script>
+	</head>
+	<body style="margin:0;bottom:0;">
+		<div id="popup">
+			<div class="windowBar">
+				<div class="windowBar-button close-button">
+					<span>x</span>
+				</div>
+			</div>
+			<div class="annotation-wrapper"></div>
+		</div>
+		<div id="menu">
+			<div>
+				<select id="projectSelector"></select>
+			</div>
+			<div>
+				<select id="viewSelector"></select>
+			</div>
+			<div>
+				<input id="image-opacity" type="range" min="0" max="1"/>
+			</div>
+		</div>
+		<div id="viewbox">
+			<svg id="svg-container" xmlns="http://www.w3.org/2000/svg" style="display: inline; width: inherit; min-width: inherit; max-width: inherit; height:inherit; min-height: inherit; max-height: inherit;" version="1.1">
+			</svg>
+		</div>
+		<div id="tagbox">
+			<button class="button" id="toggle-all-grey">All &#128161;</button>
+			<div id="tagbox-dyn"></div>
+		</div>
+		<div>
+			<button class="button-black" id="toggle-theme">&#9788;</button>			
+		</div>
+	</body>
+</html>

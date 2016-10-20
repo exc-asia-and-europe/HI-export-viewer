@@ -1,0 +1,32 @@
+{
+  "name": "hi-hraviewer",
+  "description": "a basic viewer for HyperImage exports (http://hyperimage.ws)",
+  "main": "index.html",
+  "authors": [
+    "Matthias Guth <samurai@gono.info>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "hyperimage",
+    "yenda",
+    "svg",
+    "image",
+    "annotation"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "projects/**",
+    "*-dev.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "svg-pan-zoom": "^3.3.0",
+    "jquery": "^3.1.1",
+    "d3": "^4.2.7"
+  }
+}
