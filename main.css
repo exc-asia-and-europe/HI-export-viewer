@@ -6,13 +6,17 @@ svg|svg {
 }
 
 svg|*.mouseover-highlight{
-  fill: green;
-  fill-opacity: 0.2;
+  stroke-width: 2px;
+  stroke: green;
+  fill-opacity: 0.0;
+  
+}
+svg|*.mouseover-highlight *{
+  vector-effect: non-scaling-stroke;
 }
 
 svg|*.all-highlight{
 	fill: none;
-	stroke-width: 5px;
 	stroke: none;
 }
 

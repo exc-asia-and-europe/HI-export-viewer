@@ -11,9 +11,7 @@
 		<link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
 		<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet" />
 
-		<link rel="stylesheet" href="main.css" />
-
-
+		<link rel="stylesheet" href="main.css" id="main-css"/>
 		<script type="text/javascript">
 			$(document).ready(function(){
 				initViewer();
@@ -58,7 +56,7 @@
 			</svg>
 		</div>
 		<div id="tagbox">
-			<button class="button" id="toggle-all-grey">All &#128161;</button>
+			<button class="button" id="toggle-all">All <span class='activated'>&#128161;</span></button>
 			<div id="tagbox-dyn"></div>
 		</div>
 		<div>

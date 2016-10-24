@@ -1,8 +1,8 @@
 /*global module:false*/
 module.exports = function(grunt) {
-
   // Project configuration.
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     // Task configuration.
     jshint: {
       options: {
@@ -24,7 +24,8 @@ module.exports = function(grunt) {
           "svgPanZoom": false,
           "d3": false,
           "langCodeMap": false
-        }
+        },
+        reporterOutput: ""
       },
       gruntfile: {
         src: 'Gruntfile.js'

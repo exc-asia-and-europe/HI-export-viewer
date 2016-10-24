@@ -31,14 +31,31 @@
 				}
 			]
 
-
+			function initViewer() {
+				panZoom = svgPanZoom('#svg-container', {
+					zoomEnabled: true,
+					controlIconsEnabled: true,
+					fit: false,
+					center: false
+				});
+				panZoom.zoom(0.5);
+				panZoom.pan({x: 121.35833740234375, y:-529.76611328125});
+			}
 
 			$(document).ready(function() {
-				registerEventListeners();
+
+				initViewer();
+
+				$("#viewbox").on("mouseenter", "svg >> svg > g *", function (event) {
+					console.debug("mouseenter");
+				});
+
+
+				/*registerEventListeners();*/
 				var $annoPopup = $("#anno-popup");
 				var $annoDisplay = $annoPopup.find(".annotation-wrapper");
 				console.debug($annoDisplay);
-				$annoPopup.show();
+/*				$annoPopup.show();*/
 				$annoDisplay.empty();
 				$.get("cdata.xml", function( data ) {
 					annotations[0].html = $("div", data).text();
@@ -72,7 +89,7 @@
 		</script>
 	</head>
 	<body style="margin:0;width:100vh;height:100vh;">
-		<div class="popup" id="anno-popup"style="left:100px">
+		<div class="popup" id="anno-popup" style="left:100px">
 			<div class="windowBar">
 				<div class="windowBar-button close-button">
 					<span>x</span>
@@ -93,8 +110,19 @@
 				</div>
 			</div>
 		</div>
-		<div>
-			<button id="show" type="button">Show</button>
+		<div id="viewbox" style="width:1000px;height:500px">
+			<svg id="svg-container"  style="width:1000px;height:500px">
+				<svg xmlns="http://www.w3.org/2000/svg" width="3449" height="8638" viewbox="0 0 3449 8638" id="138720be-7061-36c1-b3cf-82c76a26fdbe">
+					<image href="/HI-export-viewer/projects/pilgrimage/img/138720be-7061-36c1-b3cf-82c76a26fdbe.jpg" x="0" y="0" width="3449" height="8638" style="opacity: 0.5;"/>
+					<g transform="scale(3449, 8638)">
+						<g id="f1cf9260-9e65-48ba-8e17-0461a6b9b43c">
+							<rect id="1" height="0.005150064826011658" width="0.048083469271659865" x="0.11416894174349691" y="0.11987213790416718" style="fill:green;" />
+						</g>
+						<rect id="3" height="0.007" width="0.06" x="0.21" y="0.21" style="fill:black;" />
+						<rect id="2" height="0.00515" width="0.0480" x="0.2" y="0.2" style="fill:black;" />
+					</g>
+				</svg>
+			</svg>
 		</div>
 	</body>
 </html>
