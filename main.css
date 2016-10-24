@@ -55,6 +55,7 @@ body{
 	height: 100vh;
 	border:none;
 	float:left;
+  overflow:auto;
 }
 
 #viewbox{
