@@ -36,3 +36,13 @@ options{
  
 ## Adding Hyperimage project data
 copy the PeTAL folder to the directory defined in `options.projectFilesDir` and rename it. At the moment, the directory name is used as label. Be sure to have `Options +Indexes` enabled for the projects directory.
+
+## Used packages
+- [bower](https://bower.io)
+- [node.js](https://nodejs.org)
+
+- [d3.js](https://d3js.org/)
+- [jQuery](https://github.com/jquery/jquery)
+- [flag-icon-css](https://github.com/lipis/flag-icon-css)
+- [svg-pan-zoom](https://github.com/ariutta/svg-pan-zoom)
+
