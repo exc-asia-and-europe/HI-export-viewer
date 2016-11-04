@@ -1,4 +1,7 @@
 {
+  "author": "Matthias Guth",
+  "name": "HI-export-viewer",
+  "version": "0.0.1",
   "engines": {
     "node": ">= 0.10.0"
   },
